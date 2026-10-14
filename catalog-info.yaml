@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: lucas-ogx-oct14-gitops
+  description: GitOps manifest for OGX Agentic - lucas-ogx-oct14   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:
+    # ArgoCD apps from this template used rhtap-gitops as the grouping
+    argocd/app-selector: rhtap/gitops=lucas-ogx-oct14
+    janus-idp.io/tekton: lucas-ogx-oct14 
+    backstage.io/kubernetes-id: lucas-ogx-oct14
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:lucas-ogx-oct14  
+
